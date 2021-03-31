@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblHotel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hotelname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Pincode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Contactnumber" Type="Int32" />
+    <Property Name="Contactperson" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Facebook" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Twitter" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="Updateddate" Type="DateTime" Precision="3" />
+    <Property Name="Updatedby" Type="Int32" />
+    <NavigationProperty Name="tblRooms" Relationship="Self.FK_tblRoom_tblHotel" FromRole="tblHotel" ToRole="tblRoom" />
+  </EntityType>
+  <EntityType Name="tblRoom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hotelid" Type="Int32" />
+    <Property Name="Roomname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Roomcategory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Roomprice" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="Createdby" Type="Int32" />
+    <Property Name="Updateddate" Type="DateTime" Precision="3" />
+    <Property Name="Updatedby" Type="Int32" />
+    <NavigationProperty Name="tblHotel" Relationship="Self.FK_tblRoom_tblHotel" FromRole="tblRoom" ToRole="tblHotel" />
+  </EntityType>
+  <Association Name="FK_tblRoom_tblHotel">
+    <End Role="tblHotel" Type="Self.tblHotel" Multiplicity="0..1" />
+    <End Role="tblRoom" Type="Self.tblRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHotel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblRoom">
+        <PropertyRef Name="Hotelid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblHotels" EntityType="Self.tblHotel" />
+    <EntitySet Name="tblRooms" EntityType="Self.tblRoom" />
+    <AssociationSet Name="FK_tblRoom_tblHotel" Association="Self.FK_tblRoom_tblHotel">
+      <End Role="tblHotel" EntitySet="tblHotels" />
+      <End Role="tblRoom" EntitySet="tblRooms" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

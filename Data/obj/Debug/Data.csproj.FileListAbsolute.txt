@@ -1,0 +1,12 @@
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\Data.dll.config
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\Data.dll
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\Data.pdb
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\EntityFramework.dll
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\EntityFramework.xml
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Docs\.Net MVC\WebApiDemo\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+D:\Docs\.Net MVC\WebApiDemo\Data\obj\Debug\Data.dll
+D:\Docs\.Net MVC\WebApiDemo\Data\obj\Debug\Data.pdb
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\BusinessEntities.dll
+D:\Docs\.Net MVC\WebApiDemo\Data\bin\Debug\BusinessEntities.pdb

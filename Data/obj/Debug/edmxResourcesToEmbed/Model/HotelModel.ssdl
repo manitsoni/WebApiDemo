@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblHotel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hotelname" Type="varchar" MaxLength="25" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="10" />
+    <Property Name="Pincode" Type="varchar" MaxLength="10" />
+    <Property Name="Contactnumber" Type="int" />
+    <Property Name="Contactperson" Type="varchar" MaxLength="10" />
+    <Property Name="Website" Type="varchar" MaxLength="25" />
+    <Property Name="Facebook" Type="varchar" MaxLength="10" />
+    <Property Name="Twitter" Type="varchar" MaxLength="25" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="Updateddate" Type="datetime" />
+    <Property Name="Updatedby" Type="int" />
+  </EntityType>
+  <EntityType Name="tblRoom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hotelid" Type="int" />
+    <Property Name="Roomname" Type="varchar" MaxLength="10" />
+    <Property Name="Roomcategory" Type="varchar" MaxLength="10" />
+    <Property Name="Roomprice" Type="decimal" Precision="5" Scale="0" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="Createdby" Type="int" />
+    <Property Name="Updateddate" Type="datetime" />
+    <Property Name="Updatedby" Type="int" />
+  </EntityType>
+  <Association Name="FK_tblRoom_tblHotel">
+    <End Role="tblHotel" Type="Self.tblHotel" Multiplicity="0..1" />
+    <End Role="tblRoom" Type="Self.tblRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHotel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblRoom">
+        <PropertyRef Name="Hotelid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelManagementModelStoreContainer">
+    <EntitySet Name="tblHotel" EntityType="Self.tblHotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRoom" EntityType="Self.tblRoom" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblRoom_tblHotel" Association="Self.FK_tblRoom_tblHotel">
+      <End Role="tblHotel" EntitySet="tblHotel" />
+      <End Role="tblRoom" EntitySet="tblRoom" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

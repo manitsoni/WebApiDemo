@@ -1,0 +1,5 @@
+D:\Docs\.Net MVC\WebApiDemo\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\Docs\.Net MVC\WebApiDemo\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\Docs\.Net MVC\WebApiDemo\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\Docs\.Net MVC\WebApiDemo\BusinessEntities\obj\Debug\BusinessEntities.pdb
+D:\Docs\.Net MVC\WebApiDemo\BusinessEntities\obj\Debug\BusinessEntities.csprojResolveAssemblyReference.cache
